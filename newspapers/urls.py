@@ -15,4 +15,8 @@ urlpatterns = [
     path('add_type', addType.as_view(), name='add_type'),
     path('edit_type/<slug:type_slug>', UpdateType.as_view(), name='edit_type'),
     path('delete_type/<slug:type_slug>', delete_type, name='delete_type'),
+    path('editions', viewEditions.as_view(), name='editions'),
+    path('add_editions', addEdition.as_view(), name='add_editions'),
+    path('edit_editions/<slug:edition_slug>', UpdateEdition.as_view(), name='edit_editions'),
+    path('delete_editions/<slug:edition_slug>', delete_edition, name='delete_editions'),
 ]

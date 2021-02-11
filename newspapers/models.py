@@ -29,7 +29,7 @@ class Worker(models.Model):
         return self.name
 
     def __str__(self):
-        return f'{self.name}'
+        return f'{self.first_name}'
 
     class Meta:
         ordering = ['second_name']

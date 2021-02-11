@@ -121,3 +121,39 @@ class UpdateType(UpdateView):
 def delete_type(request, type_slug):
     TypeOfEdition.objects.get(slug=type_slug).delete()
     return redirect('types')
+
+
+class viewEditions(ListView):
+    model = Edition
+    context_object_name = 'editions'
+    template_name = 'all_editions.html'
+
+
+class addEdition(CreateView):
+    model = Edition
+    form_class = AddEdition
+    success_url = reverse_lazy('editions')
+    template_name = 'edit_company.html'
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['name'] = 'Добавление издания'
+        return context
+
+
+class UpdateEdition(UpdateView):
+    model = Edition
+    form_class = AddEdition
+    template_name = 'edit_company.html'
+    success_url = reverse_lazy('editions')
+    slug_url_kwarg = 'edition_slug'
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['name'] = 'Редатирование издания'
+        return context
+
+
+def delete_edition(request, edition_slug):
+    Edition.objects.get(slug=edition_slug).delete()
+    return redirect('editions')
