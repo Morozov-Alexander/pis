@@ -42,3 +42,16 @@ class CreateWorker(forms.ModelForm):
                 attrs={'class': 'form-control mr-sm-2', 'placeholder': 'URL', 'type': 'text'
                        }),
         }
+
+
+class AddType(forms.ModelForm):
+    class Meta:
+        model = TypeOfEdition
+        fields = '__all__'
+        widgets = {
+            'type': forms.TextInput(
+                attrs={'class': 'form-control mr-sm-2', 'placeholder': 'Тип', 'type': 'text'
+                       }),
+            'slug': forms.TextInput(
+                attrs={'class': 'form-input form-control mr-sm-2', 'placeholder': 'URL', 'type': 'text'})
+        }

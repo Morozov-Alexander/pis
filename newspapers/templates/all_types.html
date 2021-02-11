@@ -1,0 +1,25 @@
+{% extends 'temp.html' %}
+{% block name %}Типы изданий{% endblock %}
+{% block body %}
+    <body style="background-image: url('https://i.pinimg.com/originals/32/fd/6e/32fd6e742019beccda4acfc556820450.jpg')">
+    <center>
+        <a href="{% url 'add_type' %}">Добавить тип</a>
+        <table>
+            <tr>
+                <th>Тип издания</th>
+                <th>URL</th>
+                <th>Редактировать</th>
+                <th>Удалить</th>
+            </tr>
+            {% for type in types %}
+                <tr>
+                    <td>{{ type.type }}</td>
+                    <td>{{ type.slug }}</td>
+                    <td><a href="{% url 'edit_type' type.slug %}">Изменить</a></td>
+                    <td><a href="{% url 'delete_type' type.slug %}">Удалить</a></td>
+                </tr>
+            {% endfor %}
+        </table>
+    </center>
+    </body>
+{% endblock %}

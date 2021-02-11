@@ -85,3 +85,39 @@ class UpdateWorker(UpdateView):
 def delete_worker(request, worker_slug):
     Worker.objects.get(slug=worker_slug).delete()
     return redirect('workers')
+
+
+class viewTypes(ListView):
+    model = TypeOfEdition
+    template_name = 'all_types.html'
+    context_object_name = 'types'
+
+
+class addType(CreateView):
+    form_class = AddType
+    model = TypeOfEdition
+    success_url = reverse_lazy('types')
+    template_name = 'edit_company.html'
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['name'] = 'Добавление типа'
+        return context
+
+
+class UpdateType(UpdateView):
+    model = TypeOfEdition
+    form_class = AddType
+    template_name = 'edit_company.html'
+    success_url = reverse_lazy('types')
+    slug_url_kwarg = 'type_slug'
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['name'] = 'Редатирование типа'
+        return context
+
+
+def delete_type(request, type_slug):
+    TypeOfEdition.objects.get(slug=type_slug).delete()
+    return redirect('types')

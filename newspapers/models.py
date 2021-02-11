@@ -35,3 +35,36 @@ class Worker(models.Model):
         ordering = ['second_name']
         verbose_name = 'Работник'
         verbose_name_plural = 'Работники'
+
+
+class TypeOfEdition(models.Model):
+    type = models.CharField(max_length=100, verbose_name='Тип')
+    slug = models.SlugField(max_length=100, verbose_name='URL')
+
+    def __str__(self):
+        return f'{self.type}'
+
+    class Meta:
+        ordering = ['type']
+        verbose_name = 'Тип издания'
+        verbose_name_plural = 'Типы изданий'
+
+
+class Edition(models.Model):
+    name_of_the_edition = models.CharField(max_length=100, verbose_name='Название газеты')
+    start_data = models.DateField(verbose_name='Дата начала подписки')
+    end_data = models.DateField(verbose_name='Дата конца подписки')
+    slug = models.SlugField(unique=True, db_index=True, verbose_name='URL')
+    worker = models.ManyToManyField(Worker)
+    type = models.ForeignKey(TypeOfEdition, on_delete=models.PROTECT)
+
+    def __str__(self):
+        return self.name_of_the_edition
+
+    def __unicode__(self):
+        return self.name_of_the_edition
+
+    class Meta:
+        ordering = ['name_of_the_edition']
+        verbose_name = 'Издание'
+        verbose_name_plural = 'Издания'

@@ -11,4 +11,8 @@ urlpatterns = [
     path('add_worker', AddWorker.as_view(), name='add_worker'),
     path('edit_worker/<slug:worker_slug>', UpdateWorker.as_view(), name='edit_worker'),
     path('add_worker/<slug:worker_slug>', delete_worker, name='delete_worker'),
+    path('all_types', viewTypes.as_view(), name='types'),
+    path('add_type', addType.as_view(), name='add_type'),
+    path('edit_type/<slug:type_slug>', UpdateType.as_view(), name='edit_type'),
+    path('delete_type/<slug:type_slug>', delete_type, name='delete_type'),
 ]
