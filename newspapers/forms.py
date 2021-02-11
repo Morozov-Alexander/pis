@@ -26,3 +26,19 @@ class CreateComapany(forms.ModelForm):
             'slug': forms.TextInput(
                 attrs={'class': 'form-input form-control mr-sm-2', 'placeholder': 'URL', 'type': 'text'})
         }
+
+
+class CreateWorker(forms.ModelForm):
+    class Meta:
+        model = Worker
+        fields = '__all__'
+        widgets = {
+            'first_name': forms.TextInput(
+                attrs={'class': 'form-control mr-sm-2', 'placeholder': 'Имя работника', 'type': 'text'
+                       }),
+            'second_name': forms.TextInput(
+                attrs={'class': 'form-input form-control mr-sm-2', 'placeholder': 'Фамилия работника', 'type': 'text'}),
+            'slug': forms.TextInput(
+                attrs={'class': 'form-control mr-sm-2', 'placeholder': 'URL', 'type': 'text'
+                       }),
+        }

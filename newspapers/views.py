@@ -50,3 +50,38 @@ class AddCompany(CreateView):
         context = super().get_context_data(**kwargs)
         context['name'] = 'Добавление компании'
         return context
+
+
+class viewWorkers(ListView):
+    model = Worker
+    template_name = 'all_workers.html'
+    context_object_name = 'workers'
+
+
+class AddWorker(CreateView):
+    form_class = CreateWorker
+    success_url = reverse_lazy('workers')
+    template_name = 'edit_company.html'
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['name'] = 'Добавление работника'
+        return context
+
+
+class UpdateWorker(UpdateView):
+    model = Worker
+    form_class = CreateWorker
+    success_url = reverse_lazy('workers')
+    template_name = 'edit_company.html'
+    slug_url_kwarg = 'worker_slug'
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['name'] = 'Редактирование работника'
+        return context
+
+
+def delete_worker(request, worker_slug):
+    Worker.objects.get(slug=worker_slug).delete()
+    return redirect('workers')
