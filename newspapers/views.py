@@ -5,6 +5,9 @@ from django.urls import reverse_lazy
 from django.views.generic import ListView, UpdateView, DeleteView, CreateView
 from .models import *
 from .forms import *
+import logging
+
+logging.basicConfig(level=logging.INFO, filename='my_log.log')
 
 
 def menu(request):
@@ -18,6 +21,7 @@ class viewComanes(ListView):
 
     def get_context_data(self, *, object_list=None, **kwargs):
         context = super().get_context_data(**kwargs)
+        logging.info('Show info about companes')
         context['name'] = 'Компании'
         return context
 
@@ -31,12 +35,13 @@ class EditCompany(UpdateView):
 
     def get_context_data(self, *, object_list=None, **kwargs):
         context = super().get_context_data(**kwargs)
-
+        logging.info('Edit info about company')
         context['name'] = 'Редактирование компании'
         return context
 
 
 def deleteCompany(request, company_slug):
+    logging.info(f'Delete company {Company.objects.get(slug=company_slug)}')
     Company.objects.get(slug=company_slug).delete()
     return redirect('companes')
 
@@ -48,6 +53,7 @@ class AddCompany(CreateView):
 
     def get_context_data(self, *, object_list=None, **kwargs):
         context = super().get_context_data(**kwargs)
+        logging.info('Create company')
         context['name'] = 'Добавление компании'
         return context
 
@@ -65,6 +71,7 @@ class AddWorker(CreateView):
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
+        logging.info('Create new worker')
         context['name'] = 'Добавление работника'
         return context
 
@@ -78,11 +85,13 @@ class UpdateWorker(UpdateView):
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
+        logging.info('Update info about worker')
         context['name'] = 'Редактирование работника'
         return context
 
 
 def delete_worker(request, worker_slug):
+    logging.info(f'Delte worker {Worker.objects.get(slug=worker_slug)}')
     Worker.objects.get(slug=worker_slug).delete()
     return redirect('workers')
 
@@ -101,6 +110,7 @@ class addType(CreateView):
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
+        logging.info('Create new type')
         context['name'] = 'Добавление типа'
         return context
 
@@ -114,11 +124,13 @@ class UpdateType(UpdateView):
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
+        logging.info('Update info about type')
         context['name'] = 'Редатирование типа'
         return context
 
 
 def delete_type(request, type_slug):
+    logging.info(f'Delete type {TypeOfEdition.objects.get(slug=type_slug)}')
     TypeOfEdition.objects.get(slug=type_slug).delete()
     return redirect('types')
 
@@ -137,6 +149,7 @@ class addEdition(CreateView):
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
+        logging.info('Create new edition')
         context['name'] = 'Добавление издания'
         return context
 
@@ -150,10 +163,12 @@ class UpdateEdition(UpdateView):
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
+        logging.info('Update info about edition')
         context['name'] = 'Редатирование издания'
         return context
 
 
 def delete_edition(request, edition_slug):
+    logging.info(f'Delete edition {Edition.objects.get(slug=edition_slug)}')
     Edition.objects.get(slug=edition_slug).delete()
     return redirect('editions')
