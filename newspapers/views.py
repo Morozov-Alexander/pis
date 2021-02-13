@@ -6,8 +6,9 @@ from django.views.generic import ListView, UpdateView, DeleteView, CreateView
 from .models import *
 from .forms import *
 import logging
+import sys
 
-logging.basicConfig(level=logging.INFO, filename='my_log.log')
+logging.basicConfig(level=logging.INFO, filename='log.log')
 
 
 def menu(request):
@@ -21,7 +22,7 @@ class viewComanes(ListView):
 
     def get_context_data(self, *, object_list=None, **kwargs):
         context = super().get_context_data(**kwargs)
-        logging.info('Show info about companes')
+        logging.info('Show info about companies')
         context['name'] = 'Компании'
         return context
 
