@@ -55,8 +55,8 @@ class Edition(models.Model):
     start_data = models.DateField(verbose_name='Дата начала подписки')
     end_data = models.DateField(verbose_name='Дата конца подписки')
     slug = models.SlugField(unique=True, db_index=True, verbose_name='URL')
-    worker = models.ManyToManyField(Worker)
-    type = models.ForeignKey(TypeOfEdition, on_delete=models.PROTECT)
+    worker = models.ManyToManyField(Worker, related_name='edition')
+    type = models.ForeignKey(TypeOfEdition, on_delete=models.PROTECT, related_name='edition')
 
     def __str__(self):
         return self.name_of_the_edition

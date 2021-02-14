@@ -25,5 +25,8 @@ urlpatterns = [
     path('companies_json/<slug:company_slug>', ConcreteJsonCompany.as_view(), name='concrete_companes_json'),
     path('workers_json/<slug:worker_slug>', viewJsonConcreteWorker.as_view(), name='concrete_workers_json'),
     path('all_types_json', viewJsonTypes.as_view(), name='types_json'),
-    #TODO:Вывод всех изданий для типа
+    # TODO:Вывод всех изданий для типа
+    path('all_types_json/<slug:type_slug>', viewConcreteType.as_view(), name='concrete_types_json'),
+    path('editions_json', viewAllEditions.as_view(), name='editions_json'),
+    path('editions_json/<slug:edition_slug>', viewConcreteEdition.as_view(), name='concrete_editions_json'),
 ]

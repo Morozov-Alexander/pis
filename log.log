@@ -876,3 +876,248 @@ WARNING:django.request:Not Found: /menu/workers_s
 WARNING:django.request:Not Found: /menu/companies
 INFO:django.utils.autoreload:D:\python\djangoProject1\newspapers\urls.py changed, reloading.
 INFO:django.utils.autoreload:D:\python\djangoProject1\newspapers\urls.py changed, reloading.
+INFO:django.utils.autoreload:D:\python\djangoProject1\newspapers\urls.py changed, reloading.
+INFO:root:Delete type Комикс
+INFO:django.utils.autoreload:D:\python\djangoProject1\newspapers\serializers.py changed, reloading.
+INFO:django.utils.autoreload:D:\python\djangoProject1\newspapers\urls.py changed, reloading.
+INFO:django.utils.autoreload:D:\python\djangoProject1\newspapers\models.py changed, reloading.
+INFO:django.utils.autoreload:D:\python\djangoProject1\newspapers\serializers.py changed, reloading.
+INFO:django.utils.autoreload:D:\python\djangoProject1\newspapers\models.py changed, reloading.
+INFO:django.utils.autoreload:D:\python\djangoProject1\newspapers\serializers.py changed, reloading.
+INFO:django.utils.autoreload:D:\python\djangoProject1\newspapers\serializers.py changed, reloading.
+WARNING:django.request:Not Found: /favicon.ico
+WARNING:django.request:Not Found: /menu/workers_json
+WARNING:django.request:Unsupported Media Type: /menu/workers_json
+WARNING:django.request:Not Found: /menu/workers_json
+WARNING:django.request:Not Found: /menu/workers_json
+WARNING:django.request:Not Found: /menu/workers_json
+WARNING:django.request:Not Found: /menu/workers_json
+WARNING:django.request:Not Found: /menu/companies_json
+WARNING:django.request:Not Found: /menu/companies_json
+WARNING:django.request:Not Found: /menu/companies_json
+INFO:django.utils.autoreload:D:\python\djangoProject1\newspapers\views.py changed, reloading.
+INFO:django.utils.autoreload:D:\python\djangoProject1\newspapers\serializers.py changed, reloading.
+INFO:django.utils.autoreload:D:\python\djangoProject1\newspapers\serializers.py changed, reloading.
+INFO:django.utils.autoreload:D:\python\djangoProject1\newspapers\serializers.py changed, reloading.
+INFO:django.utils.autoreload:D:\python\djangoProject1\newspapers\serializers.py changed, reloading.
+INFO:django.utils.autoreload:D:\python\djangoProject1\newspapers\serializers.py changed, reloading.
+INFO:django.utils.autoreload:D:\python\djangoProject1\newspapers\views.py changed, reloading.
+INFO:django.utils.autoreload:D:\python\djangoProject1\newspapers\serializers.py changed, reloading.
+INFO:django.utils.autoreload:D:\python\djangoProject1\newspapers\serializers.py changed, reloading.
+INFO:django.utils.autoreload:D:\python\djangoProject1\newspapers\serializers.py changed, reloading.
+INFO:django.utils.autoreload:D:\python\djangoProject1\newspapers\serializers.py changed, reloading.
+WARNING:django.request:Not Found: /menu/companies
+WARNING:django.request:Not Found: /menu/companies
+INFO:root:Show info about companies
+INFO:root:Delete company Company тал
+INFO:root:Show info about companies
+INFO:root:Delete company Company Стал
+INFO:root:Show info about companies
+INFO:root:Delete company Company С
+INFO:root:Show info about companies
+INFO:root:Show info about companies
+INFO:django.utils.autoreload:D:\python\djangoProject1\newspapers\serializers.py changed, reloading.
+WARNING:django.request:Not Found: /menu/companies_json/ye
+WARNING:django.request:Not Found: /menu/companies_json/ye
+WARNING:django.request:Not Found: /menu/companies_json/ye
+INFO:django.utils.autoreload:D:\python\djangoProject1\newspapers\serializers.py changed, reloading.
+ERROR:django.request:Internal Server Error: /menu/companies_json
+Traceback (most recent call last):
+  File "D:\python\djangoProject1\venv\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "D:\python\djangoProject1\venv\lib\site-packages\django\core\handlers\base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\python\djangoProject1\venv\lib\site-packages\django\views\decorators\csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "D:\python\djangoProject1\venv\lib\site-packages\django\views\generic\base.py", line 70, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "D:\python\djangoProject1\venv\lib\site-packages\rest_framework\views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "D:\python\djangoProject1\venv\lib\site-packages\rest_framework\views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "D:\python\djangoProject1\venv\lib\site-packages\rest_framework\views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "D:\python\djangoProject1\venv\lib\site-packages\rest_framework\views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "D:\python\djangoProject1\newspapers\views.py", line 194, in post
+    temp.save()
+  File "D:\python\djangoProject1\venv\lib\site-packages\rest_framework\serializers.py", line 205, in save
+    self.instance = self.create(validated_data)
+  File "D:\python\djangoProject1\venv\lib\site-packages\rest_framework\serializers.py", line 925, in create
+    raise_errors_on_nested_writes('create', self, validated_data)
+  File "D:\python\djangoProject1\venv\lib\site-packages\rest_framework\serializers.py", line 790, in raise_errors_on_nested_writes
+    assert not any(
+AssertionError: The `.create()` method does not support writable nested fields by default.
+Write an explicit `.create()` method for serializer `newspapers.serializers.serializerCompany`, or set `read_only=True` on nested serializer fields.
+INFO:django.utils.autoreload:D:\python\djangoProject1\newspapers\serializers.py changed, reloading.
+ERROR:django.request:Internal Server Error: /menu/companies_json
+Traceback (most recent call last):
+  File "D:\python\djangoProject1\venv\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "D:\python\djangoProject1\venv\lib\site-packages\django\core\handlers\base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\python\djangoProject1\venv\lib\site-packages\django\views\decorators\csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "D:\python\djangoProject1\venv\lib\site-packages\django\views\generic\base.py", line 70, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "D:\python\djangoProject1\venv\lib\site-packages\rest_framework\views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "D:\python\djangoProject1\venv\lib\site-packages\rest_framework\views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "D:\python\djangoProject1\venv\lib\site-packages\rest_framework\views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "D:\python\djangoProject1\venv\lib\site-packages\rest_framework\views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "D:\python\djangoProject1\newspapers\views.py", line 194, in post
+    temp.save()
+  File "D:\python\djangoProject1\venv\lib\site-packages\rest_framework\serializers.py", line 205, in save
+    self.instance = self.create(validated_data)
+  File "D:\python\djangoProject1\venv\lib\site-packages\rest_framework\serializers.py", line 925, in create
+    raise_errors_on_nested_writes('create', self, validated_data)
+  File "D:\python\djangoProject1\venv\lib\site-packages\rest_framework\serializers.py", line 790, in raise_errors_on_nested_writes
+    assert not any(
+AssertionError: The `.create()` method does not support writable nested fields by default.
+Write an explicit `.create()` method for serializer `newspapers.serializers.serializerCompany`, or set `read_only=True` on nested serializer fields.
+WARNING:django.request:Not Found: /menu/companies
+WARNING:django.request:Not Found: /menu/companies
+INFO:root:Show info about companies
+INFO:django.utils.autoreload:D:\python\djangoProject1\newspapers\serializers.py changed, reloading.
+WARNING:django.request:Not Found: /menu/companies
+INFO:root:Show info about companies
+INFO:django.utils.autoreload:D:\python\djangoProject1\newspapers\views.py changed, reloading.
+INFO:django.utils.autoreload:D:\python\djangoProject1\newspapers\serializers.py changed, reloading.
+INFO:root:Show info about companies
+INFO:root:Delete company Company ал
+INFO:root:Show info about companies
+INFO:root:Delete company Company С
+INFO:root:Show info about companies
+INFO:root:Delete company Company Стал
+INFO:root:Show info about companies
+INFO:django.utils.autoreload:D:\python\djangoProject1\newspapers\serializers.py changed, reloading.
+WARNING:django.request:Not Found: /menu/companies
+INFO:root:Delete type Комик
+INFO:root:Show info about companies
+INFO:root:Delete company Company Сайл
+INFO:root:Show info about companies
+INFO:django.utils.autoreload:D:\python\djangoProject1\newspapers\views.py changed, reloading.
+INFO:django.utils.autoreload:D:\python\djangoProject1\newspapers\serializers.py changed, reloading.
+INFO:django.utils.autoreload:D:\python\djangoProject1\newspapers\serializers.py changed, reloading.
+INFO:django.utils.autoreload:D:\python\djangoProject1\newspapers\serializers.py changed, reloading.
+INFO:django.utils.autoreload:D:\python\djangoProject1\newspapers\serializers.py changed, reloading.
+INFO:django.utils.autoreload:D:\python\djangoProject1\newspapers\serializers.py changed, reloading.
+INFO:django.utils.autoreload:D:\python\djangoProject1\newspapers\serializers.py changed, reloading.
+INFO:django.utils.autoreload:D:\python\djangoProject1\newspapers\views.py changed, reloading.
+ERROR:django.request:Internal Server Error: /menu/companies_json/art
+Traceback (most recent call last):
+  File "D:\python\djangoProject1\venv\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "D:\python\djangoProject1\venv\lib\site-packages\django\core\handlers\base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\python\djangoProject1\venv\lib\site-packages\django\views\decorators\csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "D:\python\djangoProject1\venv\lib\site-packages\django\views\generic\base.py", line 70, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "D:\python\djangoProject1\venv\lib\site-packages\rest_framework\views.py", line 511, in dispatch
+    self.response = self.finalize_response(request, response, *args, **kwargs)
+  File "D:\python\djangoProject1\venv\lib\site-packages\rest_framework\views.py", line 423, in finalize_response
+    assert isinstance(response, HttpResponseBase), (
+AssertionError: Expected a `Response`, `HttpResponse` or `HttpStreamingResponse` to be returned from the view, but received a `<class 'NoneType'>`
+INFO:django.utils.autoreload:D:\python\djangoProject1\newspapers\views.py changed, reloading.
+WARNING:django.request:Not Found: /menu/companies
+INFO:root:Show info about companies
+INFO:django.utils.autoreload:D:\python\djangoProject1\newspapers\views.py changed, reloading.
+INFO:django.utils.autoreload:D:\python\djangoProject1\newspapers\views.py changed, reloading.
+ERROR:django.request:Internal Server Error: /menu/companies_json/art
+Traceback (most recent call last):
+  File "D:\python\djangoProject1\venv\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "D:\python\djangoProject1\venv\lib\site-packages\django\core\handlers\base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\python\djangoProject1\venv\lib\site-packages\django\views\decorators\csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "D:\python\djangoProject1\venv\lib\site-packages\django\views\generic\base.py", line 70, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "D:\python\djangoProject1\venv\lib\site-packages\rest_framework\views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "D:\python\djangoProject1\venv\lib\site-packages\rest_framework\views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "D:\python\djangoProject1\venv\lib\site-packages\rest_framework\views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "D:\python\djangoProject1\venv\lib\site-packages\rest_framework\views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "D:\python\djangoProject1\newspapers\views.py", line 213, in post
+    print(request['name'])
+TypeError: 'Request' object is not subscriptable
+INFO:django.utils.autoreload:D:\python\djangoProject1\newspapers\views.py changed, reloading.
+INFO:django.utils.autoreload:D:\python\djangoProject1\newspapers\views.py changed, reloading.
+ERROR:django.request:Internal Server Error: /menu/companies_json/art
+Traceback (most recent call last):
+  File "D:\python\djangoProject1\venv\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "D:\python\djangoProject1\venv\lib\site-packages\django\core\handlers\base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\python\djangoProject1\venv\lib\site-packages\django\views\decorators\csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "D:\python\djangoProject1\venv\lib\site-packages\django\views\generic\base.py", line 70, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "D:\python\djangoProject1\venv\lib\site-packages\rest_framework\views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "D:\python\djangoProject1\venv\lib\site-packages\rest_framework\views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "D:\python\djangoProject1\venv\lib\site-packages\rest_framework\views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "D:\python\djangoProject1\venv\lib\site-packages\rest_framework\views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "D:\python\djangoProject1\newspapers\views.py", line 213, in post
+    company.name = request['name']
+TypeError: 'Request' object is not subscriptable
+INFO:django.utils.autoreload:D:\python\djangoProject1\newspapers\views.py changed, reloading.
+INFO:django.utils.autoreload:D:\python\djangoProject1\newspapers\views.py changed, reloading.
+WARNING:django.request:Not Found: /menu/companies_json/ar
+INFO:django.utils.autoreload:D:\python\djangoProject1\newspapers\views.py changed, reloading.
+WARNING:django.request:Not Found: /menu/companies_json/ar
+WARNING:django.request:Not Found: /menu/companies_json/ar
+WARNING:django.request:Not Found: /menu/companies_json/ar
+WARNING:django.request:Not Found: /menu/companies_json/ar
+WARNING:django.request:Method Not Allowed: /menu/companies_json/ar
+INFO:django.utils.autoreload:D:\python\djangoProject1\newspapers\views.py changed, reloading.
+WARNING:django.request:Not Found: /menu/companies_json/ar
+WARNING:django.request:Not Found: /menu/companies_json/ar
+WARNING:django.request:Not Found: /menu/companies_json/ar
+WARNING:django.request:Not Found: /menu/companies_json/ar
+WARNING:django.request:Not Found: /menu/companies_json/ar
+WARNING:django.request:Not Found: /menu/companies_json/art
+INFO:django.utils.autoreload:D:\python\djangoProject1\newspapers\views.py changed, reloading.
+INFO:django.utils.autoreload:D:\python\djangoProject1\newspapers\views.py changed, reloading.
+WARNING:django.request:Not Found: /menu/companies
+ERROR:django.request:Internal Server Error: /menu/workers_json/gleb_andreev
+Traceback (most recent call last):
+  File "D:\python\djangoProject1\venv\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "D:\python\djangoProject1\venv\lib\site-packages\django\core\handlers\base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\python\djangoProject1\venv\lib\site-packages\django\views\decorators\csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "D:\python\djangoProject1\venv\lib\site-packages\django\views\generic\base.py", line 70, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "D:\python\djangoProject1\venv\lib\site-packages\rest_framework\views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "D:\python\djangoProject1\venv\lib\site-packages\rest_framework\views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "D:\python\djangoProject1\venv\lib\site-packages\rest_framework\views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "D:\python\djangoProject1\venv\lib\site-packages\rest_framework\views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "D:\python\djangoProject1\newspapers\views.py", line 237, in get
+    worker = Worker.objects.get(slug=worker_slug)
+  File "D:\python\djangoProject1\venv\lib\site-packages\django\db\models\manager.py", line 85, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "D:\python\djangoProject1\venv\lib\site-packages\django\db\models\query.py", line 429, in get
+    raise self.model.DoesNotExist(
+newspapers.models.Worker.DoesNotExist: Worker matching query does not exist.
+INFO:django.utils.autoreload:D:\python\djangoProject1\newspapers\views.py changed, reloading.
+WARNING:django.request:Not Found: /menu/workers_json/gleb_andree
+WARNING:django.request:Not Found: /menu/workers_json/gleb_andreev
+INFO:django.utils.autoreload:D:\python\djangoProject1\newspapers\views.py changed, reloading.
+WARNING:django.request:Not Found: /menu/all_types_json/comix
+INFO:django.utils.autoreload:D:\python\djangoProject1\newspapers\views.py changed, reloading.

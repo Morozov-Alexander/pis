@@ -191,7 +191,9 @@ class CompanyJsonView(APIView):
         temp = serializerCompany(data=request.data)
         if temp.is_valid():
             temp.save()
-        return Response(status=201)
+            return Response(status=201)
+        else:
+            return Response(status=404)
 
 
 class ConcreteJsonCompany(APIView):
@@ -202,6 +204,16 @@ class ConcreteJsonCompany(APIView):
             return Response(status=404)
         serializer = serializуConcreteCompany(company)
         return Response(serializer.data)
+
+    def put(self, request, company_slug):
+        try:
+            company = Company.objects.get(slug=company_slug)
+        except:
+            return Response(status=404)
+        company.name = request.data['name']
+        company.slug = request.data['slug']
+        company.save()
+        return Response(status=201)
 
 
 class WorkersJsonView(APIView):
@@ -215,14 +227,34 @@ class WorkersJsonView(APIView):
         temp = serializeWorkers(data=request.data)
         if temp.is_valid():
             temp.save()
-        return Response(status=201)
+            return Response(status=201)
+        else:
+            return Response(status=404)
 
 
 class viewJsonConcreteWorker(APIView):
     def get(self, request, worker_slug):
-        worker = Worker.objects.get(slug=worker_slug)
+        try:
+            worker = Worker.objects.get(slug=worker_slug)
+        except:
+            return Response(status=404)
         data = serializeConcreteWorker(worker)
         return Response(data.data)
+
+    def put(self, request, worker_slug):
+        try:
+            worker = Worker.objects.get(slug=worker_slug)
+        except:
+            return Response(status=404)
+        worker.first_name = request.data['first_name']
+        worker.second_name = request.data['second_name']
+        worker.slug = request.data['slug']
+        try:
+            worker.company = Company.objects.get(id=request.data['company'])
+        except:
+            return Response(status=404)
+        worker.save()
+        return Response(status=201)
 
 
 class viewJsonTypes(APIView):
@@ -230,3 +262,50 @@ class viewJsonTypes(APIView):
         types = TypeOfEdition.objects.all()
         serialize = serializeTypes(types, many=True)
         return Response(serialize.data)
+
+    def post(self, request):
+        temp = serializeTypes(data=request.data)
+        if temp.is_valid():
+            temp.save()
+        return Response(status=201)
+
+
+class viewConcreteType(APIView):
+    def get(self, request, type_slug):
+        try:
+            type = TypeOfEdition.objects.get(slug=type_slug)
+        except:
+            return Response(status=404)
+        temp = serializeConcreteType(type)
+        return Response(temp.data)
+
+    def put(self, request, type_slug):
+        try:
+            type = TypeOfEdition.objects.get(slug=type_slug)
+        except:
+            return Response(status=404)
+        type.type = request.data['type']
+        type.slug = request.data['slug']
+        type.save()
+        return Response(status=201)
+
+
+class viewAllEditions(APIView):
+    def get(self, request):
+        editions = Edition.objects.all()
+        serialize = serializeEditions(editions, many=True)
+        return Response(serialize.data)
+
+    def post(self, request):
+        respons = serializeEditions(data=request.data)
+        if respons.is_valid():
+            respons.save()
+        return Response(status=201)
+
+
+class viewConcreteEdition(APIView):
+    def get(self, request, edition_slug):
+        ediotion = Edition.objects.get(slug=edition_slug)
+        temp = serializeEditions(ediotion)
+        return Response(temp.data)
+    #TODO:add_put
