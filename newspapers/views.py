@@ -215,6 +215,13 @@ class ConcreteJsonCompany(APIView):
         company.save()
         return Response(status=201)
 
+    def delete(self, request, company_slug):
+        try:
+            Company.objects.get(slug=company_slug).delete()
+        except:
+            return Response(status=404)
+        return Response(status=200)
+
 
 class WorkersJsonView(APIView):
     def get(self, request):
@@ -256,6 +263,13 @@ class viewJsonConcreteWorker(APIView):
         worker.save()
         return Response(status=201)
 
+    def delete(self, request, company_slug):
+        try:
+            Worker.objects.get(slug=company_slug).delete()
+        except:
+            return Response(status=404)
+        return Response(status=200)
+
 
 class viewJsonTypes(APIView):
     def get(self, request):
@@ -289,6 +303,13 @@ class viewConcreteType(APIView):
         type.save()
         return Response(status=201)
 
+    def delete(self, request, company_slug):
+        try:
+            TypeOfEdition.objects.get(slug=company_slug).delete()
+        except:
+            return Response(status=404)
+        return Response(status=200)
+
 
 class viewAllEditions(APIView):
     def get(self, request):
@@ -306,6 +327,6 @@ class viewAllEditions(APIView):
 class viewConcreteEdition(APIView):
     def get(self, request, edition_slug):
         ediotion = Edition.objects.get(slug=edition_slug)
-        temp = serializeEditions(ediotion)
+        temp = serializeConcreteEdition(ediotion)
         return Response(temp.data)
-    #TODO:add_put
+    # TODO:add_put

@@ -57,3 +57,9 @@ class serializeConcreteType(serializers.ModelSerializer):
     class Meta:
         model = TypeOfEdition
         fields = '__all__'
+
+
+class serializeConcreteEdition(serializers.ModelSerializer):
+    class Meta:
+        model = Edition
+        fields = '__all__'
