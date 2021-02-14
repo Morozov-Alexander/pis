@@ -6,7 +6,9 @@ from django.views.generic import ListView, UpdateView, DeleteView, CreateView
 from .models import *
 from .forms import *
 import logging
-import sys
+from .serializers import *
+from rest_framework.response import Response
+from rest_framework.views import APIView
 
 logging.basicConfig(level=logging.INFO, filename='log.log')
 
@@ -173,3 +175,58 @@ def delete_edition(request, edition_slug):
     logging.info(f'Delete edition {Edition.objects.get(slug=edition_slug)}')
     Edition.objects.get(slug=edition_slug).delete()
     return redirect('editions')
+
+
+# JSON ------------------------------
+
+
+class CompanyJsonView(APIView):
+
+    def get(self, request):
+        companies = Company.objects.all()
+        serializer = serializerCompany(companies, many=True)
+        return Response(serializer.data)
+
+    def post(self, request):
+        temp = serializerCompany(data=request.data)
+        if temp.is_valid():
+            temp.save()
+        return Response(status=201)
+
+
+class ConcreteJsonCompany(APIView):
+    def get(self, request, company_slug):
+        try:
+            company = Company.objects.get(slug=company_slug)
+        except:
+            return Response(status=404)
+        serializer = serializуConcreteCompany(company)
+        return Response(serializer.data)
+
+
+class WorkersJsonView(APIView):
+    def get(self, request):
+        workers = Worker.objects.all()
+        serialize = serializeWorkers(workers, many=True)
+        return Response(serialize.data)
+
+    def post(self, request):
+        """Обработка создания нового работника post-запрос"""
+        temp = serializeWorkers(data=request.data)
+        if temp.is_valid():
+            temp.save()
+        return Response(status=201)
+
+
+class viewJsonConcreteWorker(APIView):
+    def get(self, request, worker_slug):
+        worker = Worker.objects.get(slug=worker_slug)
+        data = serializeConcreteWorker(worker)
+        return Response(data.data)
+
+
+class viewJsonTypes(APIView):
+    def get(self, request):
+        types = TypeOfEdition.objects.all()
+        serialize = serializeTypes(types, many=True)
+        return Response(serialize.data)

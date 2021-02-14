@@ -19,4 +19,11 @@ urlpatterns = [
     path('add_editions', addEdition.as_view(), name='add_editions'),
     path('edit_editions/<slug:edition_slug>', UpdateEdition.as_view(), name='edit_editions'),
     path('delete_editions/<slug:edition_slug>', delete_edition, name='delete_editions'),
+    # --------------------------------------------------------------------
+    path('companies_json', CompanyJsonView.as_view(), name='companes_json'),
+    path('workers_json', WorkersJsonView.as_view(), name='workers_json'),
+    path('companies_json/<slug:company_slug>', ConcreteJsonCompany.as_view(), name='concrete_companes_json'),
+    path('workers_json/<slug:worker_slug>', viewJsonConcreteWorker.as_view(), name='concrete_workers_json'),
+    path('all_types_json', viewJsonTypes.as_view(), name='types_json'),
+    #TODO:Вывод всех изданий для типа
 ]

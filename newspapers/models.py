@@ -23,7 +23,7 @@ class Worker(models.Model):
     first_name = models.CharField(max_length=100, verbose_name='Имя')
     second_name = models.CharField(max_length=100, verbose_name='Фамилия')
     slug = models.SlugField(max_length=100, db_index=True, verbose_name='URL')
-    company = models.ForeignKey(Company, on_delete=models.PROTECT)
+    company = models.ForeignKey(Company, on_delete=models.PROTECT, related_name='worker')
 
     def __unicode__(self):
         return self.name
