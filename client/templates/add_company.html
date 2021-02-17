@@ -1,0 +1,37 @@
+{% extends 'temp.html' %}
+{% block name %}Добавление компании{% endblock %}
+{% block body %}
+    <center>
+        <body style="background-image: url('https://i.pinimg.com/originals/32/fd/6e/32fd6e742019beccda4acfc556820450.jpg')">
+        <div class="container-fluid">
+            <div class="row" style="height: 400px">
+                <div class="col-3"></div>
+                <div class="col-6">
+                    <form class="rounded" method="POST"
+                          style="background: rgba(0,0,0,.5)">
+                        {% csrf_token %}
+                        <input type="hidden" name="csrfmiddlewaretoken"
+                               value="eR6x0OzWD6pZrsdWEsBBnduU7AvSFeUZXJjZiPQ3cXv4memsldTwedznVPszqku1">
+
+                        <p><label class="inline_label"></label> <input type="text" name="name"
+                                                                       class="form-control mr-sm-2"
+                                                                       placeholder="Название компании" maxlength="100"
+                                                                       required id="id_name"></p>
+                        <div class="row-form-errors"></div>
+
+                        <p><label class="inline_label"></label> <input type="text" name="slug"
+                                                                       class="form-input form-control mr-sm-2"
+                                                                       placeholder="URL" maxlength="100" required
+                                                                       id="id_slug"></p>
+                        <div class="row-form-errors"></div>
+
+                        <button type="submit" class="btn btn-outline-light mr-sm-2">Сохранить</button>
+                        <br>
+                    </form>
+                </div>
+                <div class="col-3"></div>
+            </div>
+        </div>
+    </center>
+    </body>
+{% endblock %}

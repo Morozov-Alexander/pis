@@ -1,0 +1,63 @@
+{% extends 'temp.html' %}
+{% block name %}Добавление компании{% endblock %}
+{% block body %}
+    <center>
+        <body style="background-image: url('https://i.pinimg.com/originals/32/fd/6e/32fd6e742019beccda4acfc556820450.jpg')">
+        <div class="container-fluid">
+            <div class="row" style="height: 400px">
+                <div class="col-3"></div>
+                <div class="col-6">
+                    <form class="rounded" method="POST"
+                          style="background: rgba(0,0,0,.5)">
+                        <input type="hidden" name="csrfmiddlewaretoken"
+                               value="wToJhAdxqcrrRm2BNW8k4EqmIJEJHTyifLBbzBuEZ3xwM8b7uHqfVEvPwYBqsZ8k">
+
+                        <p><label class="inline_label"></label> <input type="text" name="name_of_the_edition"
+                                                                       class="form-control mr-sm-2"
+                                                                       placeholder="Издание" maxlength="100" required
+                                                                       id="id_name_of_the_edition"></p>
+                        <div class="row-form-errors"></div>
+
+                        <p><label class="inline_label"></label> <input type="text" name="start_data"
+                                                                       class="form-input form-control mr-sm-2"
+                                                                       placeholder="Начало подписки" required
+                                                                       id="id_start_data"></p>
+                        <div class="row-form-errors"></div>
+
+                        <p><label class="inline_label"></label> <input type="text" name="end_data"
+                                                                       class="form-control mr-sm-2"
+                                                                       placeholder="Конец Подписки" required
+                                                                       id="id_end_data"></p>
+                        <div class="row-form-errors"></div>
+
+                        <p><label class="inline_label"></label> <input type="text" name="slug"
+                                                                       class="form-input form-control mr-sm-2"
+                                                                       placeholder="URL" maxlength="50" required
+                                                                       id="id_slug"></p>
+                        <div class="row-form-errors"></div>
+
+                        <p><label class="inline_label"></label> <select name="worker" required id="id_worker" multiple>
+                            {% for i in workers %}
+                                <option value="{{ i.id }}">{{ i.first_name }}</option>
+                            {% endfor %}
+                        </select></p>
+                        <div class="row-form-errors"></div>
+
+                        <p><label class="inline_label"></label> <select name="type" required id="id_type">
+                            <option value="" selected>---------</option>
+                            {% for i in types %}
+                                <option value="{{ i.id }}">{{ i.type }}</option>
+                            {% endfor %}
+                        </select></p>
+                        <div class="row-form-errors"></div>
+
+                        <button type="submit" class="btn btn-outline-light mr-sm-2">Сохранить</button>
+                        <br>
+                    </form>
+                </div>
+                <div class="col-3"></div>
+            </div>
+        </div>
+    </center>
+    </body>
+{% endblock %}
