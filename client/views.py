@@ -7,14 +7,33 @@ from django.shortcuts import render, redirect
 
 # Create your views here.
 def view_menu(request):
-    return render(request, 'menu.html')
+    return render(request, 'index.html')
 
 
-def get_companies(request):
-    context = {}
-    url = 'http://127.0.0.1:8001/menu/companies_json'
-    context['data'] = requests.get(url).json()
-    return render(request, 'all_companies.html', context)
+def view_menu2(request):
+    return render(request, 'index.html')
+
+
+def view_menu3(request):
+    return render(request, 'index.html')
+
+
+def view_menu4(request):
+    return render(request, 'index.html')
+
+
+def view_menu5(request):
+    return render(request, 'index.html')
+
+
+# def get_companies(request):
+#     context = {}
+#     url = 'http://127.0.0.1:8001/menu/companies_json'
+#     context['data'] = requests.get(url).json()
+#     return render(request, 'all_companies.html', context)
+
+def get_companies2(request):
+    return render(request, 'index.html')
 
 
 def get_workers(request):
