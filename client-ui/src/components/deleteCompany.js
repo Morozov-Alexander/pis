@@ -15,11 +15,7 @@ function DeleteCompany({match}) {
         }
     )
 
-    return(
-        <div>
 
-        </div>
-    )
 
 }
 

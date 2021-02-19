@@ -10,6 +10,18 @@ def view_menu(request):
     return render(request, 'index.html')
 
 
+def view_menu11(request):
+    return render(request, 'index.html')
+
+
+def view_menu12(request):
+    return render(request, 'index.html')
+
+
+def view_menu13(request, slug):
+    return render(request, 'index.html')
+
+
 def view_menu2(request):
     return render(request, 'index.html')
 

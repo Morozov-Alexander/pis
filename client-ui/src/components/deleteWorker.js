@@ -5,19 +5,18 @@ import {Redirect} from 'react-router';
 import Types from './types';
 
 
-function DeleteType({match}) {
+function DeleteWorker({match}) {
     const slug = match.params.slug;
     console.log(slug)
-    axios.delete(`http://127.0.0.1:8001/menu/all_types_json/${slug}`,).then(
+    axios.delete(`http://127.0.0.1:8001/menu/workers_json/${slug}`,).then(
         response => {
             if (response.status === 200) {
-                alert('Тип успешно удалён');
+                alert('Работник успешно удалён');
             } else {
                 alert('Повезло повезло...');
             }
         }
     )
-
     return(
         <div>
 
@@ -26,4 +25,4 @@ function DeleteType({match}) {
 
 }
 
-export default DeleteType;
+export default DeleteWorker;

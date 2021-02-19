@@ -17,6 +17,7 @@ function Companies({match}) {
     }, [])
     return (
         <div>
+            <center>
             <Link to={{pathname: `/main/add_company`}}>Добавить компанию</Link>
             <table>
 
@@ -36,6 +37,7 @@ function Companies({match}) {
                 ))}
 
             </table>
+                </center>
         </div>
 
     )

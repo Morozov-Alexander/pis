@@ -4,9 +4,15 @@ import {Link} from "react-router-dom";
 
 function Workers({match}) {
     const [workers, setWorker] = useState([])
-    axios.get(`http://127.0.0.1:8001/menu/workers_json`).then(respons => {
-        setWorker(respons.data);
-    })
+    useEffect(() => {
+        axios({
+            method: "GET",
+            url: `http://127.0.0.1:8001/menu/workers_json`
+        }).then(response => {
+            setWorker(response.data)
+        })
+
+    }, [])
 
     return (
         <div>

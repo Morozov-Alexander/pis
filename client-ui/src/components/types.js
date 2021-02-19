@@ -17,6 +17,7 @@ function Types({match}) {
     }, [])
     return (
         <div>
+            <center>
             <Link to={{pathname: `/main/add_type`}}>Добавить тип</Link>
             <table>
 
@@ -37,6 +38,7 @@ function Types({match}) {
                 ))}
 
             </table>
+                </center>
         </div>
 
     )
