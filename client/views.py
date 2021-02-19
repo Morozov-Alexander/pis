@@ -26,6 +26,14 @@ def view_menu5(request):
     return render(request, 'index.html')
 
 
+def view_menu7(request, slug):
+    return render(request, 'index.html')
+
+
+def view_menu6(request, slug):
+    return render(request, 'index.html')
+
+
 # def get_companies(request):
 #     context = {}
 #     url = 'http://127.0.0.1:8001/menu/companies_json'

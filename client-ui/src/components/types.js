@@ -17,7 +17,7 @@ function Types({match}) {
     }, [])
     return (
         <div>
-            <Link to={{pathname: `/main/companies/add_type`}}>Добавить тип</Link>
+            <Link to={{pathname: `/main/add_type`}}>Добавить тип</Link>
             <table>
 
                 <tr>
@@ -30,8 +30,8 @@ function Types({match}) {
                     <tr>
                         <td>{type.type}</td>
                         <td>{type.slug}</td>
-                        <td><Link to={{pathname: `edit_type/${type.slug}`}}>Изменить</Link></td>
-                        <td><Link to={{pathname: `delete_type/${type.slug}`}}>Изменить</Link></td>
+                        <td><Link to={{pathname: `/main/edit_type/${type.slug}`}}>Изменить</Link></td>
+                        <td><Link to={{pathname: `/main/delete_type/${type.slug}`}}>Изменить</Link></td>
 
                     </tr>
                 ))}
