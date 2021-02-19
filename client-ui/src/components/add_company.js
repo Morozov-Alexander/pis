@@ -2,18 +2,16 @@ import React, {useEffect, useState} from 'react';
 import axios from 'axios';
 import {Link} from "react-router-dom";
 
-function UpdateType({match}) {
-    const slug = match.params.slug;
-    console.log(slug)
-    const [myType, setType] = useState('')
+function AddCompany({match}) {
+    const [myName, setName] = useState('')
     const [mySlug, setSlug] = useState('')
 
     const onSubmit = (e) => {
         e.preventDefault();
-        axios.put(`http://127.0.0.1:8001/menu/all_types_json/${slug}`, {"type": myType, "slug": mySlug}).then(
+        axios.post(`http://127.0.0.1:8001/menu/companies_json`, {"name": myName, "slug": mySlug}).then(
             response => {
                 if (response.status === 201) {
-                    alert('Тип успешно обновлён');
+                    alert('Компания успешно добавлена');
                 } else {
                     alert('Повезло повезло...');
                 }
@@ -21,8 +19,8 @@ function UpdateType({match}) {
         )
     }
 
-    const changeType = (e) => {
-        setType(e.target.value);
+    const changeName = (e) => {
+        setName(e.target.value);
         console.log(e.target.value);
     }
 
@@ -38,10 +36,10 @@ function UpdateType({match}) {
                    value="014aBdEKZGaEXJb3Ox4hu35wAZLh3pbcJThCTeVRyxgJSvkzvimcl3aZoeIYOvLe"/>
 
             <p><label className="inline_label"></label> <input type="text" name="type"
-                                                               value={myType}
-                                                               onChange={changeType}
+                                                               value={myName}
+                                                               onChange={changeName}
                                                                className="form-input form-control mr-sm-2"
-                                                               placeholder="Type" maxLength="100" required
+                                                               placeholder="Название компании" maxLength="100" required
                                                                id="id_slug"/></p>
             <div className="row-form-errors"></div>
 
@@ -56,4 +54,4 @@ function UpdateType({match}) {
     )
 }
 
-export default UpdateType;
+export default AddCompany;

@@ -22,8 +22,9 @@ function Navbar() {
                             <Link to={{pathname : `/main/types`}} className="dropdown-item">Типы изданий<span
                                     className="sr-only">(current)</span></Link>
                         </li>
-                        <li className="nav-item">
-                            <a className="nav-link disabled" href="#">Disabled</a>
+                        <li className="nav-item active">
+                            <Link to={{pathname : `/main/workers`}} className="dropdown-item">Работники<span
+                                    className="sr-only">(current)</span></Link>
                         </li>
                     </ul>
                     <form className="form-inline my-2 my-lg-0">

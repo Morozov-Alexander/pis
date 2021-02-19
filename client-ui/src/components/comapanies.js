@@ -17,7 +17,7 @@ function Companies({match}) {
     }, [])
     return (
         <div>
-            <Link to={{pathname: `/main/companies/add_company`}}>Добавить компанию</Link>
+            <Link to={{pathname: `/main/add_company`}}>Добавить компанию</Link>
             <table>
 
                 <tr>
@@ -30,8 +30,8 @@ function Companies({match}) {
                     <tr>
                         <td>{company.name}</td>
                         <td>{company.slug}</td>
-                        <td><Link to={{pathname: `edit_company/${company.slug}`}}>Изменить</Link></td>
-                        <td><Link to={{pathname: `delete_company/${company.slug}`}}>Изменить</Link></td>
+                        <td><Link to={{pathname: `/main/edit_company/${company.slug}`}}>Изменить</Link></td>
+                        <td><Link to={{pathname: `/main/delete_company/${company.slug}`}}>Изменить</Link></td>
                     </tr>
                 ))}
 

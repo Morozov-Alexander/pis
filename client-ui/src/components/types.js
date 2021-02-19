@@ -31,7 +31,7 @@ function Types({match}) {
                         <td>{type.type}</td>
                         <td>{type.slug}</td>
                         <td><Link to={{pathname: `/main/edit_type/${type.slug}`}}>Изменить</Link></td>
-                        <td><Link to={{pathname: `/main/delete_type/${type.slug}`}}>Изменить</Link></td>
+                        <td><Link to={{pathname: `/main/delete_type/${type.slug}`}}>Удалить</Link></td>
 
                     </tr>
                 ))}
