@@ -8,9 +8,6 @@ function AddWorker({match}) {
     const [secondName, setSecondName] = useState('');
     const [slug, setSlug] = useState('');
     const [company, setComp] = useState('');
-    useEffect(axios({
-
-    }))
     axios.get(`http://127.0.0.1:8001/menu/companies_json`).then(
         response => {
             setCompany(response.data);

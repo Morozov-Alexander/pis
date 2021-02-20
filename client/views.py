@@ -29,6 +29,13 @@ def view_menu2(request):
 def view_menu3(request):
     return render(request, 'index.html')
 
+def view_menu15(request):
+    return render(request, 'index.html')
+
+
+def view_menu14(request):
+    return render(request, 'index.html')
+
 
 def view_menu4(request):
     return render(request, 'index.html')
