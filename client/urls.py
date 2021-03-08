@@ -20,4 +20,6 @@ urlpatterns = [
     path('add_edition', view_menu15, name='com'),
     path('edit_edition/<slug:slug>', view_menu16),
     path('delete_edition/<slug:slug>', view_menu17),
+    path('registration', view_menu18),
+    path('auth', view_menu19),
 ]

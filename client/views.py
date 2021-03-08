@@ -1,12 +1,19 @@
 from typing import Any
 
-import requests
 from django.http import HttpResponse
 from django.shortcuts import render, redirect
 
 
 # Create your views here.
 def view_menu(request):
+    return render(request, 'index.html')
+
+
+def view_menu18(request):
+    return render(request, 'index.html')
+
+
+def view_menu19(request):
     return render(request, 'index.html')
 
 

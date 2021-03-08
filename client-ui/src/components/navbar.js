@@ -33,8 +33,8 @@ function Navbar() {
 
                     </ul>
                     <form className="form-inline my-2 my-lg-0">
-                        <button className="btn btn-outline-success my-2 my-sm-0" type="submit">Зарегестрироваться
-                        </button>
+                        <Link to={{pathname:`/main/registration`}}> <button className="btn btn-outline-success my-2 my-sm-0" type="submit">Зарегистрироваться
+                        </button></Link>
                     </form>
                 </div>
             </nav>
