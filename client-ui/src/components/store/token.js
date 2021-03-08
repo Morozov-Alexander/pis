@@ -3,10 +3,11 @@ export default function token(state = [], action) {
         case  'ADD_TOKEN':
             return [
                 ...state, action.payload
-            ]
+            ];
         case 'DELETE_TOKEN':
-            return []
+            state = [];
+            return state;
         default:
-            return state
+            return state;
     }
 }
