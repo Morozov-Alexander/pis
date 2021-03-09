@@ -1,24 +1,59 @@
 import React, {useEffect, useState} from 'react';
 import axios from 'axios';
-import {Link} from "react-router-dom";
+import {Link, Redirect} from "react-router-dom";
+import {connect} from 'react-redux';
 
-function UpdateCompany({match}) {
-    const slug = match.params.slug;
+function UpdateCompany(props) {
+    const slug = props.match.params.slug;
     console.log(slug);
-    const [myName, setName] = useState('')
-    const [mySlug, setSlug] = useState('')
+    const [myName, setName] = useState('');
+    const [mySlug, setSlug] = useState('');
+    const [flag, setFlag] = useState(false);
 
-    const onSubmit = (e) => {
-        e.preventDefault();
-        axios.put(`http://127.0.0.1:8001/menu/companies_json/${slug}`, {"name": myName, "slug": mySlug}).then(
+    const RefreshToken = (r_token) => {
+        const header = {
+            Authorization: 'Bearer ' + r_token
+        }
+        axios.put(`http://127.0.0.1:8001/menu/companies_json/${slug}`, {"name": myName, "slug": mySlug}, {
+            headers: header
+        }).then(
             response => {
                 if (response.status === 201) {
                     alert('Компания успешно обновлена');
-                } else {
-                    alert('Повезло повезло...');
+                    setFlag(true);
                 }
             }
+        ).catch(err => {
+                alert('Авторизируйтесь');
+            }
         )
+    }
+
+    const onSubmit = (e) => {
+        e.preventDefault();
+        const header = {
+            'Authorization': 'Bearer ' + props.getStore.token[0],
+        }
+        axios.put(`http://127.0.0.1:8001/menu/companies_json/${slug}`,
+            {
+                "name": myName, "slug": mySlug
+            }, {
+                headers: header
+            }).then(
+            response => {
+                if (response.status === 201) {
+                    alert('Компания успешно обновлена');
+                    setFlag(true);
+                }
+            }
+        ).catch(err => {
+            if (err.status === 401 && props.getStore.token[0]) {
+                RefreshToken(props.getStore.refresh_token[0]);
+            } else {
+                alert('Авторизируйтесь ');
+            }
+
+        })
     }
 
     const changeName = (e) => {
@@ -29,6 +64,10 @@ function UpdateCompany({match}) {
     const changeSlug = (e) => {
         setSlug(e.target.value);
         console.log(e.target.value);
+    }
+
+    if (flag) {
+        return <Redirect to={`/main/companies`}/>
     }
 
     return (
@@ -56,4 +95,7 @@ function UpdateCompany({match}) {
     )
 }
 
-export default UpdateCompany;
+export default connect(
+    store => ({
+        getStore: store
+    }))(UpdateCompany);

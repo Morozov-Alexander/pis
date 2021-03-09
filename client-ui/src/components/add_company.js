@@ -1,22 +1,54 @@
 import React, {useEffect, useState} from 'react';
 import axios from 'axios';
 import {Link} from "react-router-dom";
+import {connect} from 'react-redux';
+import refresh_token from "./store/refresh_token";
 
-function AddCompany({match}) {
+function AddCompany(props) {
     const [myName, setName] = useState('')
     const [mySlug, setSlug] = useState('')
 
-    const onSubmit = (e) => {
-        e.preventDefault();
-        axios.post(`http://127.0.0.1:8001/menu/companies_json`, {"name": myName, "slug": mySlug}).then(
+    const RefreshToken = (r_token) => {
+        const header = {
+            Authorization: 'Bearer ' + r_token
+        }
+        axios.post(`http://127.0.0.1:8001/menu/companies_json`, {"name": myName, "slug": mySlug}, {
+            headers: header
+        }).then(
             response => {
                 if (response.status === 201) {
                     alert('Компания успешно добавлена');
-                } else {
-                    alert('Повезло повезло...');
                 }
             }
+        ).catch(err => {
+                alert('Авторизируйтесь');
+            }
         )
+    }
+
+
+    const onSubmit = (e) => {
+        e.preventDefault();
+        const header = {
+            'Authorization': 'Bearer ' + props.getStore.token[0],
+        }
+        axios.post(`http://127.0.0.1:8001/menu/companies_json`, {"name": myName, "slug": mySlug}, {
+            headers : header
+        }).then(
+            response => {
+                if (response.status === 201) {
+                    alert('Компания успешно добавлена');
+                }
+            }
+        ).catch(err => {
+            if (err.data.status === 401 && props.getStore.token[0]) {
+                RefreshToken(props.getStore.refresh_token[0]);
+            } else {
+                alert('Авторизируйтесь');
+            }
+
+        })
+
     }
 
     const changeName = (e) => {
@@ -54,4 +86,8 @@ function AddCompany({match}) {
     )
 }
 
-export default AddCompany;
+export default connect(
+    store => ({
+        getStore: store
+    })
+)(AddCompany);

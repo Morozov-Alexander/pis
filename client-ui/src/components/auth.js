@@ -27,12 +27,14 @@ function Auth(props) {
         }).then((response) => {
             alert(response.data.access);
             props.addToken(response.data.access);
+            props.addRefreshToken(response.data.refresh);
+            setRedirect(true);
         }).catch(err => {
             alert(`Неверный запрос ${err}`);
         })
     }
     if (redirect) {
-        return <Redirect to={{pathname: `/main`}}/>
+        return <Redirect to={{pathname: `/main/companies`}}/>
     }
 
     return (
@@ -79,6 +81,9 @@ export default connect(
         {
             addToken: (token) => {
                 dispatch({type: 'ADD_TOKEN', payload: token})
+            },
+            addRefreshToken: (r_token) => {
+                dispatch({type: 'ADD_REFRESH_TOKEN', payload: r_token})
             }
         }
     )

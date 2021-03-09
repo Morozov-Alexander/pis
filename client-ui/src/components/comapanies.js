@@ -32,7 +32,7 @@ function Companies({match}) {
                         <td>{company.name}</td>
                         <td>{company.slug}</td>
                         <td><Link to={{pathname: `/main/edit_company/${company.slug}`}}>Изменить</Link></td>
-                        <td><Link to={{pathname: `/main/delete_company/${company.slug}`}}>Изменить</Link></td>
+                        <td><Link to={{pathname: `/main/delete_company/${company.slug}`}}>Удалить</Link></td>
                     </tr>
                 ))}
 
